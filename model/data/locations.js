@@ -1,6 +1,7 @@
 'use strict';
 module.exports = [
     {
+        "id": 1,
         "name": "Kazoom Cafe",
         "address": {
             "street": "160-2169, boul Marcel-Laurin",
@@ -67,6 +68,7 @@ module.exports = [
         themes: [1, 2]
     },
     {
+        "id": 2,
         "name": "Birthday Parties for Kids",
         "address": {
             "street": "555, av Walnut",
@@ -143,6 +145,7 @@ module.exports = [
         theme: [1]
     },
     {
+        "id": 3,
         "name": "Centre LOL En Fête",
         "address": {
             "street": "181 boul d'Anjou",
@@ -214,6 +217,7 @@ module.exports = [
         theme: [1]
     },
     {
+        "id": 4,
         "name": "Festi-Fêtes",
         "address": {
             "street": "2575 boul Le Corbusier",
@@ -238,6 +242,7 @@ module.exports = [
         theme: [1]
     },
     {
+        "id": 5,
         "name": "Le Roi Du Party",
         "address": {
             "street": "33, rue Baby",

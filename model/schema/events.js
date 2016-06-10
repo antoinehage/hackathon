@@ -33,8 +33,8 @@ module.exports = {
             }
         }
     },
-    "addresses": {
-        "type": "array",
+    "location": {
+        "type": "number",
         "minItems": 1,
         "uniqueItems": true,
         "items": {

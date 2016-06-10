@@ -27,7 +27,7 @@ module.exports = {
         "id": 4,
         "label": {
             "fr": "anniversaire de mariage",
-            "en": "wedding annyversary"
+            "en": "wedding anniversary"
         }
     },
     "reunion": {
