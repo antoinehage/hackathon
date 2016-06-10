@@ -36,12 +36,20 @@ module.exports = {
             "fr": "réunion école secondaire",
             "en": "high school reunion"
         }
-    },    
+    },
     "graduation": {
         "id": 6,
         "label": {
             "fr": "graduation",
             "en": "graduation"
+        }
+    },
+    
+    "launched": {
+        "id": 7,
+        "label": {
+            "fr": "lancement",
+            "en": "launch"
         }
     }
 };
