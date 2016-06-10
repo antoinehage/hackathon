@@ -2,7 +2,6 @@
 
 var event = require(__dirname + "/model/schemas/event.js");
 var booking = require(__dirname + "/model/schemas/bookings.js");
-var user = require(__dirname + "/model/schemas/users.js");
 var media = require(__dirname + "/model/schemas/medias.js");
 var checkin = require(__dirname + "/model/schemas/checkins.js");
 
