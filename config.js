@@ -105,7 +105,7 @@ module.exports = {
         // Post to add a media to an event
         "/event/:id/medias": {
             "_apiInfo": {
-                "l": "Adds a media to an event",
+                "l": "Add a media to an event",
                 "group": "Basic",
                 "groupMain": true
             },
@@ -136,7 +136,7 @@ module.exports = {
         //put to modify an event
         "/event/:id": {
             "_apiInfo": {
-                "l": "Checkin to an event",
+                "l": "Modify an event",
                 "group": "Basic"
             },
             "commonFields": ["id", "model"],
@@ -151,7 +151,7 @@ module.exports = {
         //Get to retrieve all the locations
         "/locs": {
             "_apiInfo": {
-                "l": "Checkin to an event",
+                "l": "Get a list of possible location for an event",
                 "group": "Basic"
             },
             "commonFields": ["id", "model"]
@@ -159,7 +159,7 @@ module.exports = {
 
         "/loc/:id/booking": {
             "_apiInfo": {
-                "l": "Checkin to an event",
+                "l": "Book a location for an event",
                 "group": "Basic"
             },
             "commonFields": ["id", "model"],
@@ -171,7 +171,7 @@ module.exports = {
         },
         "/themes": {
             "_apiInfo": {
-                "l": "Checkin to an event",
+                "l": "Get a List of supported event theme",
                 "group": "Basic"
             },
             "commonFields": ["id", "model"]
