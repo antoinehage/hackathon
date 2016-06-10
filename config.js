@@ -4,6 +4,7 @@ var event = require(__dirname + "/model/schemas/event.js");
 var booking = require(__dirname + "/model/schemas/bookings.js");
 var user = require(__dirname + "/model/schemas/users.js");
 var media = require(__dirname + "/model/schemas/medias.js");
+var checkin = require(__dirname + "/model/schemas/checkins.js");
 
 module.exports = {
     serviceName: "hack",
@@ -45,7 +46,7 @@ module.exports = {
                 }
             }
         },
-        
+
         //Get event by id
         "/g/event/:id": {
             "_apiInfo": {
@@ -55,7 +56,7 @@ module.exports = {
             },
             "commonFields": ["id", "model"]
         },
-        
+
         //Get all events
         "/g/events": {
             "_apiInfo": {
@@ -85,27 +86,50 @@ module.exports = {
                 }
             }
         },
-        
+
         // post to create a new event
         "/p/events": {
-            
+            "_apiInfo": {
+                "l": "Add an event to the collection",
+                "group": "Basic",
+                "groupMain": true
+            },
+            "commonFields": ["model"],
+            "event": {
+                "type": "object",
+                "properties": event,
+                "required": true
+            }
         },
-        
+
         // Post to add a media to an event
-        "/event/:id/medias": {},
+        "/event/:id/medias": {
+            "_apiInfo": {
+                "l": "Adds a media to an event",
+                "group": "Basic",
+                "groupMain": true
+            },
+            "commonFields": ["id", "model"],
+            "media":{
+                "type": "object",
+                "properties": media,
+                "required": true
+            }
+        },
 
         "/event/:id/checkin": {
             "_apiInfo": {
                 "l": "Checkin to an event",
                 "group": "Basic"
             },
-            "commonFields": ["id"],
+            "commonFields": ["id", "model"],
             "name": {
                 "type": "object",
-                "properties": person,
+                "properties": checkin,
                 "required": true
             }
         },
+        
         //post
         "/event/:id": {},
 

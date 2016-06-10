@@ -1,47 +1,50 @@
 "use strict";
 
+var medias = require("./medias");
+var checkins = require("./checkins");
+
 module.exports = {
+    "name": {
+        "type": "string",
+        "required": true
+    },
+    "description": {
+        "type": "string",
+        "required": true
+    },
+    "time": {
+        //TODO : what the real type for date???
+        "type": "date",
+        "required": true
+    },
     "theme": {
-        "type":"number",
-        "required":true,
+        "type": "number",
+        "required": true,
         "ref": "theme.id"
     },
     "owner": {
-        "type": "object",
-        "properties": {
-            "firstName": {
-                "required": true,
-                "type": "string"
-            },
-            "lastName": {
-                "required": true,
-                "type": "string"
-            },
-            "phone":{
-
-            },
-            "emails": {
-                "required": true,
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "address": {"type": "string", "format": "email", "required": true},
-                        "primary": {"type": "boolean", "required": true}
-                    }
-                }
-            }
-        }
+        "type": "number",
+        "required": true
     },
     "location": {
         "type": "number",
         "required": true
     },
-    "medias":{
-        "type": "array"
+    "medias": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties": medias,
+            "required": false
+        }
     },
-    "checkins":{
-        "type": "array"
+    "checkins": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties": checkins,
+            "required": false
+        }
     }
 }
 ;
