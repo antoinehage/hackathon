@@ -24,9 +24,9 @@ function initBLModel(req, res, cb) {
 service.init(function () {
 
 	/**
-	 * Get one contact
+	 * Get one event
 	 */
-	service.get("/event/id/:id", function (req, res) {
+	service.get("/event/:id", function (req, res) {
 		initBLModel(req, res, function (BL) {
 			BL.getEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
@@ -34,11 +34,10 @@ service.init(function () {
 		});
 	});
 
-
 	/**
-	 * Get all Contacts
+	 * Get all events
 	 */
-	service.get("/event/all", function (req, res) {
+	service.get("/events", function (req, res) {
 		initBLModel(req, res, function (BL) {
 			BL.getEntries(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
@@ -47,9 +46,9 @@ service.init(function () {
 	});
 
 	/**
-	 * Add one or more contacts
+	 * Add one event
 	 */
-	service.post("/event/new", function (req, res) {
+	service.post("/events", function (req, res) {
 		initBLModel(req, res, function (BL) {
 			BL.addEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
@@ -58,16 +57,70 @@ service.init(function () {
 	});
 
 	/**
-	 * Update one contact
+	 * Add media to an event
 	 */
-	service.put("/event/update/:id", function (req, res) {
+	service.post("/event/:id/medias", function (req, res) {
+		initBLModel(req, res, function (BL) {
+			BL.addEntry(config, req.soajs, function (error, response) {
+				return res.json(req.soajs.buildResponse(error, response));
+			});
+		});
+	});
+
+	/**
+	 * Check in to an event
+	 */
+	service.post("/event/:id/checkin", function (req, res) {
+		initBLModel(req, res, function (BL) {
+			BL.addEntry(config, req.soajs, function (error, response) {
+				return res.json(req.soajs.buildResponse(error, response));
+			});
+		});
+	});
+
+	/**
+	 * Update one event
+	 */
+	service.put("/event/:id", function (req, res) {
 		initBLModel(req, res, function (BL) {
 			BL.updateEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
 	});
-	
+
+	/**
+	 * Get all locations
+	 */
+	service.get("/locs", function (req, res) {
+		initBLModel(req, res, function (BL) {
+			BL.updateEntry(config, req.soajs, function (error, response) {
+				return res.json(req.soajs.buildResponse(error, response));
+			});
+		});
+	});
+
+	/**
+	 * Book a location
+	 */
+	service.post("/loc/:id/booking", function (req, res) {
+		initBLModel(req, res, function (BL) {
+			BL.updateEntry(config, req.soajs, function (error, response) {
+				return res.json(req.soajs.buildResponse(error, response));
+			});
+		});
+	});
+
+	/**
+	 * Get all themes
+	 */
+	service.get("/themes", function (req, res) {
+		initBLModel(req, res, function (BL) {
+			BL.updateEntry(config, req.soajs, function (error, response) {
+				return res.json(req.soajs.buildResponse(error, response));
+			});
+		});
+	});
 
 	service.start();
 });
