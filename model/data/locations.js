@@ -211,6 +211,106 @@ module.exports = [
                 "description": ""
             }
         ],
-        theme:[1]
+        theme: [1]
+    },
+    {
+        "name": "Festi-Fêtes",
+        "address": {
+            "street": "2575 boul Le Corbusier",
+            "city": "Laval",
+            "prov": "QC",
+            "pcode": "H7S 2E8"
+        },
+        "geoCode": {
+            "latitude": "45.576959",
+            "longitude": "-73.743061"
+        }, "phones": [
+        {
+            "freecall": false,
+            "npa": "450",
+            "nxx": "688",
+            "num": "0660",
+            "dispNum": "450-688-0660",
+            "type": "primary"
+        }
+    ],
+        "photos": [],
+        theme: [1]
+    },
+    {
+        "name": "Le Roi Du Party",
+        "address": {
+            "street": "33, rue Baby",
+            "city": "Joliette",
+            "prov": "QC",
+            "pcode": "J6E 2V4"
+        },
+        "geoCode": {
+            "latitude": "46.0303466",
+            "longitude": "-73.4379616"
+        },
+        "phones": [
+            {
+                "freecall": false,
+                "npa": "450",
+                "nxx": "394",
+                "num": "5266",
+                "dispNum": "450-394-5266",
+                "type": "primary"
+            }
+        ],
+        "photos": [
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_8a763fbc540ede4e35c3555bc00c3e93810cc4ea_0_46910900_1398954257_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_8a763fbc540ede4e35c3555bc00c3e93810cc4ea_0_46910900_1398954257_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_4e3cb0150b28d44dbdbf08b9202abb08e3b629b1_0_97765200_1398954237_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_4e3cb0150b28d44dbdbf08b9202abb08e3b629b1_0_97765200_1398954237_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_b4b5383f6e94679399599f9a394d73537e5d5740_0_05920300_1398954249_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_b4b5383f6e94679399599f9a394d73537e5d5740_0_05920300_1398954249_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_19c6e9ee9d2dd14f01f068a808a096bc67649407_0_58697600_1398954252_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_19c6e9ee9d2dd14f01f068a808a096bc67649407_0_58697600_1398954252_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_a243b958afc423ff4945dbffdeede3efddfc95b9_0_36040000_1398954264_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_a243b958afc423ff4945dbffdeede3efddfc95b9_0_36040000_1398954264_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_2a21e55c6ac91fef9ec975630c8f6e4498a4d05d_0_11655000_1398954271_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_2a21e55c6ac91fef9ec975630c8f6e4498a4d05d_0_11655000_1398954271_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_46146c775b7a0fa33866fd47ffe15fadc9dd768d_0_08034700_1398954283_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_46146c775b7a0fa33866fd47ffe15fadc9dd768d_0_08034700_1398954283_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_4c6a2726fdc17020f01879898d9382a749fc755a_0_63405400_1398954319_r.JPG",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_4c6a2726fdc17020f01879898d9382a749fc755a_0_63405400_1398954319_t.JPG",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc_photos_3783d8ec4ad28d2585e6630459805c88c270155c_0_45586000_1398954933_r.JPG",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc_photos_3783d8ec4ad28d2585e6630459805c88c270155c_0_45586000_1398954933_t.JPG",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6405240/pcc-5085736644061231580-otos_40c5d79cd6f372e9a02ea904b383df420663f666_0_36746400_1398954354_r_r.JPG",
+                "thmbUrl": "http://cdn.media.yp.ca/6405240/pcc-5085736644061231580-otos_40c5d79cd6f372e9a02ea904b383df420663f666_0_36746400_1398954354_r_t.JPG",
+                "description": ""
+            }
+        ],
+        themes: [1]
     }
 ];
