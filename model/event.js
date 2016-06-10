@@ -53,6 +53,20 @@ module.exports = {
 		});
 	},
 
+	"addMedia": function (soajs, cb) {
+		checkIfMongo(soajs);
+		mongo.insert(collName, soajs.inputmaskData.data, function(error){
+			return cb(error, true);
+		});
+	},
+
+	"checkin": function (soajs, cb) {
+		checkIfMongo(soajs);
+		mongo.insert(collName, soajs.inputmaskData.data, function(error){
+			return cb(error, true);
+		});
+	},
+	
 	"updateEvent": function (soajs, cb) {
 		checkIfMongo(soajs);
 		validateId(soajs.inputmaskData.id, function (error, id) {
@@ -72,13 +86,6 @@ module.exports = {
 				var updateRec = soajs.inputmaskData.data;
 				mongo.update(collName, {"_id": id}, updateRec, {"multi": false, "upsert": false, "safe": true}, cb);
 			});
-		});
-	},
-
-	"addMedia": function (soajs, cb) {
-		checkIfMongo(soajs);
-		mongo.insert(collName, soajs.inputmaskData.data, function(error){
-			return cb(error, true);
 		});
 	}
 };
