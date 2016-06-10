@@ -93,7 +93,7 @@ service.init(function () {
 	 */
 	service.post("/event/:id/medias", function (req, res) {
 		initEBLModel(req, res, function (BL) {
-			BL.addEntry(config, req.soajs, function (error, response) {
+			BL.addEntry(config, req, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
