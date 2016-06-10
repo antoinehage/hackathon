@@ -61,4 +61,4 @@ var products = [
             "http://www.thinkgeek.com/images/products/additional/carousel/iqti_dw_11th_collectibles_parts.jpg"
         ]
     }
-]
+];
