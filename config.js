@@ -96,6 +96,7 @@ module.exports = {
             },
             "commonFields": ["model"],
             "event": {
+                "source": ["body.data"],
                 "type": "object",
                 "properties": event,
                 "required": true
@@ -111,12 +112,14 @@ module.exports = {
             },
             "commonFields": ["id", "model"],
             "media":{
+                "source": ["body.data"],
                 "type": "object",
                 "properties": media,
                 "required": true
             }
         },
 
+        // Post to add a checkin to an event
         "/event/:id/checkin": {
             "_apiInfo": {
                 "l": "Checkin to an event",
@@ -124,13 +127,14 @@ module.exports = {
             },
             "commonFields": ["id", "model"],
             "name": {
+                "source": ["body.data"],
                 "type": "object",
                 "properties": checkin,
                 "required": true
             }
         },
         
-        //post
+        //post to add an event
         "/event/:id": {},
 
         "/locs": {
