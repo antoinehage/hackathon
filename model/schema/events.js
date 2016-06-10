@@ -1,13 +1,13 @@
 "use strict";
 
 module.exports = {
-    theme: {
+    "theme": {
         "type":"number",
         "required":true,
         "ref": "theme.id"
     },
-    owner: {
-        type: "object",
+    "owner": {
+        "type": "object",
         "properties": {
             "firstName": {
                 "required": true,
