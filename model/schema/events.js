@@ -35,43 +35,7 @@ module.exports = {
     },
     "location": {
         "type": "number",
-        "minItems": 1,
-        "uniqueItems": true,
-        "items": {
-            "type": "object",
-            "properties": {
-                "address1": {
-                    "type": "string",
-                    "required": true
-                }
-                ,
-                "address2": {
-                    "type": "string",
-                    "required": false
-                }
-                ,
-                "city": {
-                    "type": "string",
-                    "required": true
-                }
-                ,
-                "state": {
-                    "type": "string",
-                    "required": true,
-                    "pattern": "[A-Z]{2}"
-                }
-                ,
-                "zip": {
-                    "type": "string",
-                    "required": true
-                }
-                ,
-                "primary": {
-                    "type": "boolean",
-                    "required": true
-                }
-            }
-        }
+        "required": true
     }
 }
 ;
