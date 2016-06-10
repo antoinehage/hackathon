@@ -22,11 +22,11 @@ module.exports = {
         "required": true,
         "ref": "theme.id"
     },
-    "owner": {
+    "ownerId": {
         "type": "number",
         "required": true
     },
-    "location": {
+    "locId": {
         "type": "number",
         "required": true
     },
