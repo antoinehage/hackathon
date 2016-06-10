@@ -141,60 +141,41 @@ module.exports = {
                 "group": "Basic"
             },
             "commonFields": ["id", "model"],
-
+            "event": {
+                "source": ["body.data"],
+                "type": "object",
+                "properties": event,
+                "required": true
+            }
         },
 
+        //Get to retrieve all the locations
         "/locs": {
             "_apiInfo": {
-                "l": "Get a location list",
+                "l": "Checkin to an event",
                 "group": "Basic"
-            }
-        },
-        "/events/all": {
-            "_apiInfo": {
-                "l": "Add new Contact(s)",
-                "group": "Basic",
-                "groupMain": false
-            },
-            "commonFields": ["model"],
-            "data": {
-                "source": ["body.data"],
-                "required": true,
-                "validation": {
-                    "oneOf": [
-                        {
-                            "type": "object",
-                            "properties": "event"
-                        },
-                        {
-                            "type": "array",
-                            "minItems": 1,
-                            "uniqueItems": true,
-                            "items": {
-                                "type": "object",
-                                "properties": event
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-
-        "/event/:ids": {
-            "_apiInfo": {
-                "l": "Update contact by ID",
-                "group": "Basic",
-                "groupMain": false
             },
             "commonFields": ["id", "model"],
-            "data": {
-                "required": true,
-                "source": ["body.data"],
-                "validation": {
-                    "type": "object",
-                    "properties": event
-                }
-            }
+            "":{}
+        },
+
+        "/loc/:id/booking": {
+            "_apiInfo": {
+                "l": "Checkin to an event",
+                "group": "Basic"
+            },
+            "commonFields": ["id", "model"],
+            "":{}
+        },
+        "/themes": {
+            "_apiInfo": {
+                "l": "Checkin to an event",
+                "group": "Basic"
+            },
+            "commonFields": ["id", "model"],
+            "":{}
         }
+
+
     }
 };

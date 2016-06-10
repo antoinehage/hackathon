@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    "id": {
+    "eventId": {
         "type": "number",
         "required": true
     },
