@@ -155,8 +155,7 @@ module.exports = {
                 "l": "Checkin to an event",
                 "group": "Basic"
             },
-            "commonFields": ["id", "model"],
-            "":{}
+            "commonFields": ["id", "model"]
         },
 
         "/loc/:id/booking": {
@@ -165,15 +164,18 @@ module.exports = {
                 "group": "Basic"
             },
             "commonFields": ["id", "model"],
-            "":{}
+            "booking":{
+                "type":"object",
+                "properties": booking,
+                "required":true
+            }
         },
         "/themes": {
             "_apiInfo": {
                 "l": "Checkin to an event",
                 "group": "Basic"
             },
-            "commonFields": ["id", "model"],
-            "":{}
+            "commonFields": ["id", "model"]
         }
 
 
