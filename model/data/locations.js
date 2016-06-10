@@ -64,9 +64,153 @@ module.exports = [
                 "description": ""
             }
         ],
-        themes:[1,2]
+        themes: [1, 2]
     },
     {
-        
+        "name": "Birthday Parties for Kids",
+        "address": {
+            "street": "555, av Walnut",
+            "city": "Saint-Lambert",
+            "prov": "QC",
+            "pcode": "J4P 2T7"
+        },
+        "geoCode": {
+            "latitude": "45.505332",
+            "longitude": "-73.506474"
+        },
+        "phones": [
+            {
+                "freecall": false,
+                "npa": "514",
+                "nxx": "781",
+                "num": "0351",
+                "dispNum": "514-781-0351",
+                "type": "primary"
+            }
+        ],
+        "photos": [
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_50551000_1413553503_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_50551000_1413553503_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_55790600_1413553508_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_55790600_1413553508_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_54837000_1413553512_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_54837000_1413553512_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_33038100_1413553516_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_33038100_1413553516_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_42929300_1413553524_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_42929300_1413553524_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_97404700_1413553532_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_97404700_1413553532_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_92184200_1413553537_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_92184200_1413553537_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_49916500_1413553542_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_49916500_1413553542_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_06188800_1413553556_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_06188800_1413553556_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6218862/pcc_0_31885300_1413553565_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6218862/pcc_0_31885300_1413553565_t.jpg",
+                "description": ""
+            }
+        ],
+        theme: [1]
+    },
+    {
+        "name": "Centre LOL En Fête",
+        "address": {
+            "street": "181 boul d'Anjou",
+            "city": "Châteauguay",
+            "prov": "QC",
+            "pcode": "J6J 2R3"
+        },
+        "geoCode": {
+            "latitude": "45.3596608",
+            "longitude": "-73.7256761"
+        },
+        "phones": [
+            {
+                "freecall": false,
+                "npa": "450",
+                "nxx": "844",
+                "num": "4899",
+                "dispNum": "450-844-4899",
+                "type": "primary"
+            }
+        ],
+        "photos": [
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-2244247808773349214-lol1_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-2244247808773349214-lol1_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-2966511290434057713-lol2_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-2966511290434057713-lol2_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-3566085233183723560-lol3_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-3566085233183723560-lol3_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-1159996977306616235-lol4_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-1159996977306616235-lol4_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-7771196701470831562-lol5_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-7771196701470831562-lol5_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-4475791380143463948-lol6_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-4475791380143463948-lol6_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-4462903414496678527-lol8_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-4462903414496678527-lol8_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-5581103414070438705-lol9_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-5581103414070438705-lol9_t.jpg",
+                "description": ""
+            },
+            {
+                "url": "http://cdn.media.yp.ca/6121744/pcc-3786085915037041519-lol10_r.jpg",
+                "thmbUrl": "http://cdn.media.yp.ca/6121744/pcc-3786085915037041519-lol10_t.jpg",
+                "description": ""
+            }
+        ],
+        theme:[1]
     }
 ];
