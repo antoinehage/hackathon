@@ -15,7 +15,7 @@ scenarios.push({
 		{
 			skip: false,
 			url: '/g/event/575b05e661a04d711382ed5d/',
-			result: {result: true, data: {"_id": "1","firstName": "John","lastName": "Doe","emails": [{"address": "me@gmail.com","primary": true}],"addresses": [{"address1": "123 cory street","address2": "suite 12","city": "boston","state": "MA","zip": "12345","primary": true}]} },
+			result: {"result":true,"data":{"_id":"575b05e661a04d711382ed5d","id":1,"name":"Mathieu's birthday party","description":"Open bar bash to celebrate Mathieu's remaining time on this earth. No pictures allowed :)","time":"2014-02-29 09:00:00","theme":1,"ownerId":1,"locId":1,"medias":[],"checkins":[{"eventId":1,"userId":1,"message":"Has anybody seen my pants?"},{"eventId":1,"userId":2,"message":"I heard some interesting noises comming out of the entrance closet!"},{"eventId":1,"userId":3,"message":"What's that smell???"},{"eventId":1,"userId":4,"message":"Hey who's pants are hangning from the neighbour's bedroom window"}]}},
 			body: null,
 			bodyForm: null
 		}
