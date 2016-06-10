@@ -1,4 +1,4 @@
-'use strick';
+'use strict';
 
 module.exports = {
     "id": {
