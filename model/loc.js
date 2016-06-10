@@ -5,6 +5,7 @@ var mongo;
 
 var dbName = "momento";
 var collName = "location";
+var BookingCollName = "booking";
 
 function checkIfMongo(soajs) {
 	if (!mongo) {
@@ -37,7 +38,9 @@ module.exports = {
 
 	"book": function (soajs, cb) {
 		checkIfMongo(soajs);
-		mongo.insert(collName, soajs.inputmaskData.data, function(error){
+		var rec = soajs.inputmaskData.data;
+		rec.location = soajs.inputmaskData.id;
+		mongo.insert(BookingCollName, rec, function(error){
 			return cb(error, true);
 		});
 	}
