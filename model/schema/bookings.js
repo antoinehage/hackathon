@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    "location": {
+    "locId": {
         "type": "number",
         "required": true
     },
