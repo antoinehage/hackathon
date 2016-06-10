@@ -1,16 +1,48 @@
 'use strict';
 var soajs = require('soajs');
 var config = require('./config.js');
-var BLModule = require("./lib/index");
+var EBLModule = require("./lib/event.js");
+var LBLModule = require("./lib/loc.js");
+var TBLModule = require("./lib/theme.js");
 
 var service = new soajs.server.service(config);
 
-function initBLModel(req, res, cb) {
-	var modelName = "mongo";
+function initEBLModel(req, res, cb) {
+	var modelName = "event";
 	if(process.env.SOAJS_TEST && req.soajs.inputmaskData.model){
 		modelName = req.soajs.inputmaskData.model;
 	}
-	BLModule.init(modelName, function (error, BL) {
+	EBLModule.init(modelName, function (error, BL) {
+		if (error) {
+			req.soajs.log.error(error);
+			return res.json(req.soajs.buildResponse({"code": 407, "msg": config.errors[407]}));
+		}
+		else {
+			return cb(BL);
+		}
+	});
+}
+function initLBLModel(req, res, cb) {
+	var modelName = "loc";
+	if(process.env.SOAJS_TEST && req.soajs.inputmaskData.model){
+		modelName = req.soajs.inputmaskData.model;
+	}
+	LBLModule.init(modelName, function (error, BL) {
+		if (error) {
+			req.soajs.log.error(error);
+			return res.json(req.soajs.buildResponse({"code": 407, "msg": config.errors[407]}));
+		}
+		else {
+			return cb(BL);
+		}
+	});
+}
+function initTBLModel(req, res, cb) {
+	var modelName = "theme";
+	if(process.env.SOAJS_TEST && req.soajs.inputmaskData.model){
+		modelName = req.soajs.inputmaskData.model;
+	}
+	TBLModule.init(modelName, function (error, BL) {
 		if (error) {
 			req.soajs.log.error(error);
 			return res.json(req.soajs.buildResponse({"code": 407, "msg": config.errors[407]}));
@@ -27,7 +59,7 @@ service.init(function () {
 	 * Get one event
 	 */
 	service.get("/event/:id", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initEBLModel(req, res, function (BL) {
 			BL.getEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -38,7 +70,7 @@ service.init(function () {
 	 * Get all events
 	 */
 	service.get("/events", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initEBLModel(req, res, function (BL) {
 			BL.getEntries(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -49,7 +81,7 @@ service.init(function () {
 	 * Add one event
 	 */
 	service.post("/events", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initEBLModel(req, res, function (BL) {
 			BL.addEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -60,7 +92,7 @@ service.init(function () {
 	 * Add media to an event
 	 */
 	service.post("/event/:id/medias", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initEBLModel(req, res, function (BL) {
 			BL.addEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -71,7 +103,7 @@ service.init(function () {
 	 * Check in to an event
 	 */
 	service.post("/event/:id/checkin", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initEBLModel(req, res, function (BL) {
 			BL.addEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -82,7 +114,7 @@ service.init(function () {
 	 * Update one event
 	 */
 	service.put("/event/:id", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initEBLModel(req, res, function (BL) {
 			BL.updateEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -93,7 +125,7 @@ service.init(function () {
 	 * Get all locations
 	 */
 	service.get("/locs", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initLBLModel(req, res, function (BL) {
 			BL.updateEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -104,7 +136,7 @@ service.init(function () {
 	 * Book a location
 	 */
 	service.post("/loc/:id/booking", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initLBLModel(req, res, function (BL) {
 			BL.updateEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
@@ -115,7 +147,7 @@ service.init(function () {
 	 * Get all themes
 	 */
 	service.get("/themes", function (req, res) {
-		initBLModel(req, res, function (BL) {
+		initTBLModel(req, res, function (BL) {
 			BL.updateEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});

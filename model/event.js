@@ -3,8 +3,8 @@ var soajs = require('soajs');
 var Mongo = soajs.mongo;
 var mongo;
 
-var dbName = "myContacts";
-var collName = "records";
+var dbName = "momento";
+var collName = "events";
 
 function checkIfMongo(soajs) {
 	if (!mongo) {
@@ -23,7 +23,7 @@ function validateId(id, cb) {
 
 module.exports = {
 
-	"getEntry": function (soajs, cb) {
+	"getEvent": function (soajs, cb) {
 		checkIfMongo(soajs);
 		validateId(soajs.inputmaskData.id, function (error, id) {
 			if (error) {
@@ -34,7 +34,7 @@ module.exports = {
 		});
 	},
 
-	"getEntries": function (soajs, cb) {
+	"getEvents": function (soajs, cb) {
 		checkIfMongo(soajs);
 		var options = {};
 		if (soajs.inputmaskData.from && soajs.inputmaskData.to) {
@@ -46,37 +46,14 @@ module.exports = {
 		mongo.find(collName, {}, options, cb);
 	},
 
-	"deleteEntry": function (soajs, cb) {
-		checkIfMongo(soajs);
-		validateId(soajs.inputmaskData.id, function (error, id) {
-			if (error) {
-				return cb(error);
-			}
-
-			mongo.count(collName, {"_id": id}, function (error, count) {
-				if (error) {
-					return cb(error);
-				}
-
-				if (!count) {
-					return cb(new Error("No entry found for id ", id));
-				}
-
-				mongo.remove(collName, {"_id": id}, function(error){
-					return cb(error, true);
-				});
-			});
-		});
-	},
-
-	"addEntry": function (soajs, cb) {
+	"addEvent": function (soajs, cb) {
 		checkIfMongo(soajs);
 		mongo.insert(collName, soajs.inputmaskData.data, function(error){
 			return cb(error, true);
 		});
 	},
 
-	"updateEntry": function (soajs, cb) {
+	"updateEvent": function (soajs, cb) {
 		checkIfMongo(soajs);
 		validateId(soajs.inputmaskData.id, function (error, id) {
 			if (error) {
@@ -98,15 +75,10 @@ module.exports = {
 		});
 	},
 
-	"matchEntry": function (soajs, cb) {
+	"addMedia": function (soajs, cb) {
 		checkIfMongo(soajs);
-		var condition = {
-			$or:[
-				{firstName: { '$regex': soajs.inputmaskData.q, $options: 'ig' } },
-				{lastName: { '$regex': soajs.inputmaskData.q, $options: 'ig' } }
-			]
-		};
-
-		mongo.find(collName, condition, cb);
+		mongo.insert(collName, soajs.inputmaskData.data, function(error){
+			return cb(error, true);
+		});
 	}
 };
