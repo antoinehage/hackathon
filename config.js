@@ -113,14 +113,14 @@ module.exports = {
         },
 
         // Post to add a media to an event
-        "/event/:id/media": {
+        "/event/:id/media/:filename": {
             "_apiInfo": {
                 "l": "Get media to an event",
                 "group": "Basic"
             },
             "commonFields": ["id"],
             "fileName" : {
-                "source": ["query.fileName"],
+                "source": ["params.fileName"],
                 "required": true,
                 "validation": {
                     "type": "string"

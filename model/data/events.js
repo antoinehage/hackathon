@@ -9,6 +9,7 @@ var events= [
         "ownerId": 1,
         "locId": 1,
         "medias": [],
+        "mediasURL": [],
         "checkins": [
             {
                 "eventId": 1,
@@ -41,6 +42,7 @@ var events= [
         "ownerId": 2,
         "locId": 4,
         "medias": [],
+        "mediasURL": [],
         "checkins": [
             {
                 "eventId": 2,
@@ -73,6 +75,7 @@ var events= [
         "ownerId": 2,
         "locId": 4,
         "medias": [],
+        "mediasURL": [],
         "checkins": [
             {
                 "eventId": 3,
@@ -100,6 +103,7 @@ var events= [
         "ownerId": 2,
         "locId": 4,
         "medias": [],
+        "mediasURL": [],
         "checkins": []
     }
 ];

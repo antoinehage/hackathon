@@ -61,7 +61,6 @@ module.exports = {
             return cb(new Error('Missing required field [filename]'));
         }
         checkIfMongo(req.soajs);
-        //TODO add grid FS
         var form = new formidable.IncomingForm();
         form.encoding = 'utf-8';
         form.keepExtensions = true;
@@ -97,6 +96,44 @@ module.exports = {
                     });
                 };
                 form.parse(req);
+            });
+        });
+    },
+
+    "getMedia": function (req, cb) {
+        checkIfMongo(soajs);
+        var condition = {
+            'filename': req.soajs.inputmaskData.filename,
+            'id': req.soajs.inputmaskData.id
+        };
+        mongo.findOne('fs.files', condition, function (error, fileInfo) {
+            if (error)
+                return cb(error);
+            mongo.getMongoSkinDB(function (error, db) {
+                if (error)
+                    return cb(error);
+                var gfs = Grid(db, mongo.mongoSkin);
+                var gs = gfs.mongo.GridStore(db, fileInfo._id, 'r', {
+                    root: 'fs',
+                    w: 1,
+                    fsync: true
+                });
+                gs.open(function (error, gstore) {
+                    if (error)
+                        return cb(error);
+
+                    gstore.read(function (error, filedata) {
+                        if (error) {
+                            return closeAndLeave(error);
+                        }
+                        else {
+                            gstore.close();
+                            res.writeHead(200, {'Content-Type': fileInfo.contentType});
+                            res.end(filedata);
+                        }
+                    });
+
+                });
             });
         });
     },
