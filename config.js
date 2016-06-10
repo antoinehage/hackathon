@@ -111,7 +111,7 @@ module.exports = {
                 "groupMain": true
             },
             "commonFields": ["id", "model"],
-            "media":{
+            "media": {
                 "source": ["body.data"],
                 "type": "object",
                 "properties": media,
@@ -126,16 +126,23 @@ module.exports = {
                 "group": "Basic"
             },
             "commonFields": ["id", "model"],
-            "name": {
+            "checkin": {
                 "source": ["body.data"],
                 "type": "object",
                 "properties": checkin,
                 "required": true
             }
         },
-        
-        //post to add an event
-        "/event/:id": {},
+
+        //put to modify an event
+        "/event/:id": {
+            "_apiInfo": {
+                "l": "Checkin to an event",
+                "group": "Basic"
+            },
+            "commonFields": ["id", "model"],
+
+        },
 
         "/locs": {
             "_apiInfo": {
