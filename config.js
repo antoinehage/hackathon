@@ -1,9 +1,9 @@
 'use strict';
 
-var event = require(__dirname + "/model/schemas/event.js");
-var booking = require(__dirname + "/model/schemas/bookings.js");
-var media = require(__dirname + "/model/schemas/medias.js");
-var checkin = require(__dirname + "/model/schemas/checkins.js");
+var event = require(__dirname + "/model/schema/events.js");
+var booking = require(__dirname + "/model/schema/bookings.js");
+var media = require(__dirname + "/model/schema/medias.js");
+var checkin = require(__dirname + "/model/schema/checkins.js");
 
 module.exports = {
     serviceName: "hack",
@@ -83,11 +83,13 @@ module.exports = {
                 "group": "Basic",
                 "groupMain": true
             },
-            "event": {
+            "data":{
+                "required": true,
                 "source": ["body.data"],
-                "type": "object",
-                "properties": event,
-                "required": true
+                "validation":{
+                    "type": "object",
+                    "properties": event
+                }
             }
         },
 
@@ -99,11 +101,14 @@ module.exports = {
                 "groupMain": true
             },
             "commonFields": ["id"],
-            "media": {
+
+            "data":{
+                "required": true,
                 "source": ["body.data"],
-                "type": "object",
-                "properties": media,
-                "required": true
+                "validation":{
+                    "type": "object",
+                    "properties": media
+                }
             }
         },
 
@@ -114,11 +119,14 @@ module.exports = {
                 "group": "Basic"
             },
             "commonFields": ["id"],
-            "checkin": {
+
+            "data":{
+                "required": true,
                 "source": ["body.data"],
-                "type": "object",
-                "properties": checkin,
-                "required": true
+                "validation":{
+                    "type": "object",
+                    "properties": checkin
+                }
             }
         },
 
@@ -129,11 +137,14 @@ module.exports = {
                 "group": "Basic"
             },
             "commonFields": ["id"],
-            "event": {
+
+            "data":{
+                "required": true,
                 "source": ["body.data"],
-                "type": "object",
-                "properties": event,
-                "required": true
+                "validation":{
+                    "type": "object",
+                    "properties": event
+                }
             }
         },
 
@@ -171,10 +182,13 @@ module.exports = {
                 "group": "Basic"
             },
             "commonFields": ["id"],
-            "booking":{
-                "type":"object",
-                "properties": booking,
-                "required":true
+            "data":{
+                "required": true,
+                "source": ["body.data"],
+                "validation":{
+                    "type": "object",
+                    "properties": booking
+                }
             }
         },
         "/themes": {

@@ -1,16 +1,13 @@
 var Db = db.getSiblingDB('momento');
 
-load ("locations.js")
+load ("locations.js");
 Db.locations.insert(locations);
 
-
-load ("themes.js")
+load ("themes.js");
 Db.themes.insert(themes);
 
-
-load ("events.js")
+load ("events.js");
 Db.events.insert(events);
 
-
-load ("products.js")
+load ("products.js");
 Db.products.insert(products);

@@ -18,7 +18,8 @@
     "node": "*"
   },
   "dependencies": {
-    "lodash": "*",
+    "formidable": "*",
+    "gridfs-stream": "*",
     "soajs": "0.3.*"
   },
   "devDependencies": {

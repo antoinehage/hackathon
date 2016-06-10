@@ -13,14 +13,12 @@ module.exports = {
         "required": true
     },
     "time": {
-        //TODO : what the real type for date???
-        "type": "date",
+        "type": "string",
         "required": true
     },
     "theme": {
         "type": "number",
-        "required": true,
-        "ref": "theme.id"
+        "required": true
     },
     "ownerId": {
         "type": "number",
@@ -46,5 +44,4 @@ module.exports = {
             "required": false
         }
     }
-}
-;
+};

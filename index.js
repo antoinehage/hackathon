@@ -76,7 +76,7 @@ service.init(function () {
 	 */
 	service.get("/g/event/:id", function (req, res) {
 		initEBLModel(req, res, function (BL) {
-			BL.getEntry(config, req.soajs, function (error, response) {
+			BL.getEvent(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -87,7 +87,7 @@ service.init(function () {
 	 */
 	service.get("/g/events", function (req, res) {
 		initEBLModel(req, res, function (BL) {
-			BL.getEntries(config, req.soajs, function (error, response) {
+			BL.getEvents(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -98,7 +98,7 @@ service.init(function () {
 	 */
 	service.post("/p/events", function (req, res) {
 		initEBLModel(req, res, function (BL) {
-			BL.addEntry(config, req.soajs, function (error, response) {
+			BL.addEvent(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -109,7 +109,7 @@ service.init(function () {
 	 */
 	service.post("/event/:id/medias", function (req, res) {
 		initEBLModel(req, res, function (BL) {
-			BL.addEntry(config, req, function (error, response) {
+			BL.addMedia(config, req, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -120,7 +120,7 @@ service.init(function () {
 	 */
 	service.post("/event/:id/checkin", function (req, res) {
 		initEBLModel(req, res, function (BL) {
-			BL.addEntry(config, req.soajs, function (error, response) {
+			BL.checkin(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -131,7 +131,7 @@ service.init(function () {
 	 */
 	service.put("/event/:id", function (req, res) {
 		initEBLModel(req, res, function (BL) {
-			BL.updateEntry(config, req.soajs, function (error, response) {
+			BL.updateEvent(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -142,7 +142,7 @@ service.init(function () {
 	 */
 	service.get("/locs", function (req, res) {
 		initLBLModel(req, res, function (BL) {
-			BL.updateEntry(config, req.soajs, function (error, response) {
+			BL.getLocations(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -153,7 +153,7 @@ service.init(function () {
 	 */
 	service.post("/loc/:id/booking", function (req, res) {
 		initLBLModel(req, res, function (BL) {
-			BL.updateEntry(config, req.soajs, function (error, response) {
+			BL.book(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -164,7 +164,7 @@ service.init(function () {
 	 */
 	service.get("/themes", function (req, res) {
 		initTBLModel(req, res, function (BL) {
-			BL.updateEntry(config, req.soajs, function (error, response) {
+			BL.getThemes(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});
@@ -175,7 +175,7 @@ service.init(function () {
 	 */
 	service.get("/products", function (req, res) {
 		initPBLModel(req, res, function (BL) {
-			BL.updateEntry(config, req.soajs, function (error, response) {
+			BL.getProducts(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});
 		});

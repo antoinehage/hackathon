@@ -31,7 +31,7 @@ module.exports = {
             if (error) {
                 return cb(error);
             }
-
+            console.log ({"_id": id});
             mongo.findOne(collName, {"_id": id}, cb);
         });
     },
