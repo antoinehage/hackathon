@@ -143,7 +143,26 @@ module.exports = {
                 "l": "Get a list of possible location for an event",
                 "group": "Basic"
             },
-            "commonFields": ["id"]
+            "from": {
+                "source": ['query.from', 'body.from'],
+                "required": false,
+                "default": 0,
+                "validation": {
+                    "min": 0,
+                    "max": 100,
+                    "type": "integer"
+                }
+            },
+            "to": {
+                "source": ['query.to', 'body.to'],
+                "required": false,
+                "default": 100,
+                "validation": {
+                    "min": 0,
+                    "max": 100,
+                    "type": "integer"
+                }
+            }
         },
 
         "/loc/:id/booking": {
@@ -163,7 +182,52 @@ module.exports = {
                 "l": "Get a List of supported event theme",
                 "group": "Basic"
             },
-            "commonFields": ["id"]
+            "from": {
+                "source": ['query.from', 'body.from'],
+                "required": false,
+                "default": 0,
+                "validation": {
+                    "min": 0,
+                    "max": 100,
+                    "type": "integer"
+                }
+            },
+            "to": {
+                "source": ['query.to', 'body.to'],
+                "required": false,
+                "default": 100,
+                "validation": {
+                    "min": 0,
+                    "max": 100,
+                    "type": "integer"
+                }
+            }
+        },
+        "/products": {
+            "_apiInfo": {
+                "l": "Get a List of products",
+                "group": "Basic"
+            },
+            "from": {
+                "source": ['query.from', 'body.from'],
+                "required": false,
+                "default": 0,
+                "validation": {
+                    "min": 0,
+                    "max": 100,
+                    "type": "integer"
+                }
+            },
+            "to": {
+                "source": ['query.to', 'body.to'],
+                "required": false,
+                "default": 100,
+                "validation": {
+                    "min": 0,
+                    "max": 100,
+                    "type": "integer"
+                }
+            }
         }
 
 

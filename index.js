@@ -4,6 +4,7 @@ var config = require('./config.js');
 var EBLModule = require("./lib/event.js");
 var LBLModule = require("./lib/loc.js");
 var TBLModule = require("./lib/theme.js");
+var PBLModule = require("./lib/products.js");
 
 var service = new soajs.server.service(config);
 
@@ -43,6 +44,21 @@ function initTBLModel(req, res, cb) {
 		modelName = req.soajs.inputmaskData.model;
 	}
 	TBLModule.init(modelName, function (error, BL) {
+		if (error) {
+			req.soajs.log.error(error);
+			return res.json(req.soajs.buildResponse({"code": 407, "msg": config.errors[407]}));
+		}
+		else {
+			return cb(BL);
+		}
+	});
+}
+function initPBLModel(req, res, cb) {
+	var modelName = "product";
+	if(process.env.SOAJS_TEST && req.soajs.inputmaskData.model){
+		modelName = req.soajs.inputmaskData.model;
+	}
+	PBLModule.init(modelName, function (error, BL) {
 		if (error) {
 			req.soajs.log.error(error);
 			return res.json(req.soajs.buildResponse({"code": 407, "msg": config.errors[407]}));
@@ -148,6 +164,17 @@ service.init(function () {
 	 */
 	service.get("/themes", function (req, res) {
 		initTBLModel(req, res, function (BL) {
+			BL.updateEntry(config, req.soajs, function (error, response) {
+				return res.json(req.soajs.buildResponse(error, response));
+			});
+		});
+	});
+
+	/**
+	 * Get all products
+	 */
+	service.get("/products", function (req, res) {
+		initPBLModel(req, res, function (BL) {
 			BL.updateEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
 			});

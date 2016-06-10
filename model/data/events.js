@@ -1,4 +1,5 @@
-[
+'use strict';
+var events= [
     {
         "id": 1,
         "name": "Mathieu's birthday party",
