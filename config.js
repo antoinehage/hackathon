@@ -34,15 +34,6 @@ module.exports = {
                 "validation": {
                     "type": "string"
                 }
-            },
-            "model": {
-                "source": ['query.model'],
-                "required": false,
-                "default": "memory",
-                "validation": {
-                    "type": "string",
-                    "enum": ["memory", "mongo"]
-                }
             }
         },
 
@@ -53,7 +44,7 @@ module.exports = {
                 "group": "Basic",
                 "groupMain": false
             },
-            "commonFields": ["id", "model"]
+            "commonFields": ["id"]
         },
 
         //Get all events
@@ -63,7 +54,6 @@ module.exports = {
                 "group": "Basic",
                 "groupMain": true
             },
-            "commonFields": ["model"],
             "from": {
                 "source": ['query.from', 'body.from'],
                 "required": false,
@@ -93,7 +83,6 @@ module.exports = {
                 "group": "Basic",
                 "groupMain": true
             },
-            "commonFields": ["model"],
             "event": {
                 "source": ["body.data"],
                 "type": "object",
@@ -109,7 +98,7 @@ module.exports = {
                 "group": "Basic",
                 "groupMain": true
             },
-            "commonFields": ["id", "model"],
+            "commonFields": ["id"],
             "media": {
                 "source": ["body.data"],
                 "type": "object",
@@ -124,7 +113,7 @@ module.exports = {
                 "l": "Checkin to an event",
                 "group": "Basic"
             },
-            "commonFields": ["id", "model"],
+            "commonFields": ["id"],
             "checkin": {
                 "source": ["body.data"],
                 "type": "object",
@@ -139,7 +128,7 @@ module.exports = {
                 "l": "Modify an event",
                 "group": "Basic"
             },
-            "commonFields": ["id", "model"],
+            "commonFields": ["id"],
             "event": {
                 "source": ["body.data"],
                 "type": "object",
@@ -154,7 +143,7 @@ module.exports = {
                 "l": "Get a list of possible location for an event",
                 "group": "Basic"
             },
-            "commonFields": ["id", "model"]
+            "commonFields": ["id"]
         },
 
         "/loc/:id/booking": {
@@ -162,7 +151,7 @@ module.exports = {
                 "l": "Book a location for an event",
                 "group": "Basic"
             },
-            "commonFields": ["id", "model"],
+            "commonFields": ["id"],
             "booking":{
                 "type":"object",
                 "properties": booking,
@@ -174,7 +163,7 @@ module.exports = {
                 "l": "Get a List of supported event theme",
                 "group": "Basic"
             },
-            "commonFields": ["id", "model"]
+            "commonFields": ["id"]
         }
 
 
