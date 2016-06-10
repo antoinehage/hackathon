@@ -116,7 +116,7 @@ service.init(function () {
 	});
 
 	/**
-	 * Add media to an event
+	 * Get media to an event
 	 */
 	service.get("/event/:id/media/:filename", function (req, res) {
 		initEBLModel(req, res, function (BL) {

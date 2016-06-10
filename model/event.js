@@ -31,7 +31,6 @@ module.exports = {
             if (error) {
                 return cb(error);
             }
-            //TODO get event medias
             mongo.findOne(collName, {"_id": id}, cb);
         });
     },
@@ -45,7 +44,6 @@ module.exports = {
                 limit: soajs.inputmaskData.to
             };
         }
-        //TODO get events medias
         mongo.find(collName, {}, options, cb);
     },
 
@@ -92,7 +90,9 @@ module.exports = {
                             return cb(error);
                     });
                     writeStream.on('close', function (file) {
-                        return cb(null, true);
+
+                        mongo.update(collName, {"_id": id}, {"$push": {"medias": req.query.filename}}, {"safe": true}, cb);
+                        //return cb(null, true);
                     });
                 };
                 form.parse(req);

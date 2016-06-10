@@ -112,7 +112,7 @@ module.exports = {
             }
         },
 
-        // Post to add a media to an event
+        // Get media to an event
         "/event/:id/media/:filename": {
             "_apiInfo": {
                 "l": "Get media to an event",
