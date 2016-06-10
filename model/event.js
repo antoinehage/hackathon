@@ -55,9 +55,8 @@ module.exports = {
 
 	"addMedia": function (soajs, cb) {
 		checkIfMongo(soajs);
-		mongo.insert(collName, soajs.inputmaskData.data, function(error){
-			return cb(error, true);
-		});
+		//TODO add grid FS
+		return cb(null, true);
 	},
 
 	"checkin": function (soajs, cb) {
@@ -66,7 +65,7 @@ module.exports = {
 			return cb(error, true);
 		});
 	},
-	
+
 	"updateEvent": function (soajs, cb) {
 		checkIfMongo(soajs);
 		validateId(soajs.inputmaskData.id, function (error, id) {
