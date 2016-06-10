@@ -1,6 +1,7 @@
 'use strict';
 var soajs = require('soajs');
 var Grid = require('gridfs-stream');
+var formidable = require('formidable');
 var Mongo = soajs.mongo;
 var mongo;
 
@@ -20,17 +21,6 @@ function validateId(id, cb) {
     catch (e) {
         return cb(e);
     }
-}
-
-function checkForMongoAndGridFs(cb) {
-    mongo.getMongoSkinDB(function (error, db) {
-        if (error) {
-            return cb(error);
-        }
-
-        var gfs = Grid(db, mongo.mongoSkin);
-        return cb(null, {'db': db, 'gfs': gfs});
-    });
 }
 
 module.exports = {
@@ -65,10 +55,48 @@ module.exports = {
         });
     },
 
-    "addMedia": function (soajs, cb) {
-        checkIfMongo(soajs);
+    "addMedia": function (req, cb) {
+        if (!req.query.filename) {
+            return cb(new Error('Missing required field [filename]'));
+        }
+        checkIfMongo(req.soajs);
         //TODO add grid FS
-        return cb(null, true);
+        var form = new formidable.IncomingForm();
+        form.encoding = 'utf-8';
+        form.keepExtensions = true;
+        form.maxFieldSize = 100 * 1024 * 1024;
+
+        var criteria = {
+            'filename': req.query.filename
+        };
+        mongo.findOne("fs.files", criteria, function (error, cert) {
+            if (error)
+                return cb(error);
+            mongo.getMongoSkinDB(function (error, db) {
+                if (error)
+                    return cb(error);
+                var gfs = Grid(db, mongo.mongoSkin);
+                form.onPart = function (part) {
+                    if (!part.filename) return form.handlePart(part);
+
+                    var fileData = {
+                        filename: part.filename
+                    };
+
+                    var writeStream = gfs.createWriteStream(fileData);
+
+                    part.pipe(writeStream);
+                    writeStream.on('error', function (error) {
+                        if (error)
+                            return cb(error);
+                    });
+                    writeStream.on('close', function (file) {
+                        return cb(null, true);
+                    });
+                };
+                form.parse(req);
+            });
+        });
     },
 
     "checkin": function (soajs, cb) {
