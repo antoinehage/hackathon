@@ -1,5 +1,5 @@
 'use strict';
-module.exports = [
+var locations = [
     {
         "id": 1,
         "name": "Kazoom Cafe",

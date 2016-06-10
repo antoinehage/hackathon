@@ -4,7 +4,7 @@ var Mongo = soajs.mongo;
 var mongo;
 
 var dbName = "momento";
-var collName = "location";
+var collName = "locations";
 var BookingCollName = "booking";
 
 function checkIfMongo(soajs) {
