@@ -58,7 +58,7 @@ service.init(function () {
 	/**
 	 * Get one event
 	 */
-	service.get("/event/:id", function (req, res) {
+	service.get("/g/event/:id", function (req, res) {
 		initEBLModel(req, res, function (BL) {
 			BL.getEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
@@ -69,7 +69,7 @@ service.init(function () {
 	/**
 	 * Get all events
 	 */
-	service.get("/events", function (req, res) {
+	service.get("/g/events", function (req, res) {
 		initEBLModel(req, res, function (BL) {
 			BL.getEntries(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));
@@ -80,7 +80,7 @@ service.init(function () {
 	/**
 	 * Add one event
 	 */
-	service.post("/events", function (req, res) {
+	service.post("/p/events", function (req, res) {
 		initEBLModel(req, res, function (BL) {
 			BL.addEntry(config, req.soajs, function (error, response) {
 				return res.json(req.soajs.buildResponse(error, response));

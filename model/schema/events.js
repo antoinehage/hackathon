@@ -36,6 +36,12 @@ module.exports = {
     "location": {
         "type": "number",
         "required": true
+    },
+    "medias":{
+        "type": "array"
+    },
+    "checkins":{
+        "type": "array"
     }
 }
 ;
