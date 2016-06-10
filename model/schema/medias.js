@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = {
-    "owner":{
+    "ownerId":{
         "type":"number",
         "required":true
     },
-    "event":{
+    "eventId":{
         "type":"number",
         "required":true
     },
