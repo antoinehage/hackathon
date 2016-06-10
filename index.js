@@ -116,6 +116,17 @@ service.init(function () {
 	});
 
 	/**
+	 * Add media to an event
+	 */
+	service.get("/event/:id/media", function (req, res) {
+		initEBLModel(req, res, function (BL) {
+			BL.getMedia(config, req, function (error, response) {
+				return res.json(req.soajs.buildResponse(error, response));
+			});
+		});
+	});
+
+	/**
 	 * Check in to an event
 	 */
 	service.post("/event/:id/checkin", function (req, res) {

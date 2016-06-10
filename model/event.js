@@ -31,7 +31,7 @@ module.exports = {
             if (error) {
                 return cb(error);
             }
-            console.log ({"_id": id});
+            //TODO get event medias
             mongo.findOne(collName, {"_id": id}, cb);
         });
     },
@@ -45,6 +45,7 @@ module.exports = {
                 limit: soajs.inputmaskData.to
             };
         }
+        //TODO get events medias
         mongo.find(collName, {}, options, cb);
     },
 
@@ -67,7 +68,8 @@ module.exports = {
         form.maxFieldSize = 100 * 1024 * 1024;
 
         var criteria = {
-            'filename': req.query.filename
+            'filename': req.query.filename,
+            'id': req.soajs.inputmaskData.id
         };
         mongo.findOne("fs.files", criteria, function (error, cert) {
             if (error)

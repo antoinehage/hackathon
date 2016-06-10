@@ -112,6 +112,22 @@ module.exports = {
             }
         },
 
+        // Post to add a media to an event
+        "/event/:id/media": {
+            "_apiInfo": {
+                "l": "Get media to an event",
+                "group": "Basic"
+            },
+            "commonFields": ["id"],
+            "fileName" : {
+                "source": ["query.fileName"],
+                "required": true,
+                "validation": {
+                    "type": "string"
+                }
+            }
+        },
+
         // Post to add a checkin to an event
         "/event/:id/checkin": {
             "_apiInfo": {
