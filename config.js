@@ -38,110 +38,111 @@ module.exports = {
         },
 
         //Get event by id
-        "/g/event/:id": {
-            "_apiInfo": {
-                "l": "Get event by ID",
-                "group": "Basic",
-                "groupMain": false
-            },
-            "commonFields": ["id"]
-        },
-
-        //Get all events
-        "/g/events": {
-            "_apiInfo": {
-                "l": "Get all events",
-                "group": "Basic",
-                "groupMain": true
-            },
-            "from": {
-                "source": ['query.from', 'body.from'],
-                "required": false,
-                "default": 0,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
+        "_GET": {
+            "/event/:id": {
+                "_apiInfo": {
+                    "l": "Get event by ID",
+                    "group": "Basic",
+                    "groupMain": false
                 }
             },
-            "to": {
-                "source": ['query.to', 'body.to'],
-                "required": false,
-                "default": 100,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
+
+            //Get all events
+            "/events": {
+                "_apiInfo": {
+                    "l": "Get all events",
+                    "group": "Basic",
+                    "groupMain": true
+                },
+                "from": {
+                    "source": ['query.from', 'body.from'],
+                    "required": false,
+                    "default": 0,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                },
+                "to": {
+                    "source": ['query.to', 'body.to'],
+                    "required": false,
+                    "default": 100,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                }
+            },
+            // Get media of an event
+            "/event/:id/media/:filename": {
+                "_apiInfo": {
+                    "l": "Get media to an event",
+                    "group": "Basic"
+                },
+                "commonFields": ["id"],
+                "fileName": {
+                    "source": ["params.fileName"],
+                    "required": true,
+                    "validation": {
+                        "type": "string"
+                    }
                 }
             }
         },
-
         // post to create a new event
-        "/p/events": {
-            "_apiInfo": {
-                "l": "Add an event to the collection",
-                "group": "Basic",
-                "groupMain": true
-            },
-            "data":{
-                "required": true,
-                "source": ["body.data"],
-                "validation":{
-                    "type": "object",
-                    "properties": event
+        "_POST": {
+            "/events": {
+                "_apiInfo": {
+                    "l": "Add an event to the collection",
+                    "group": "Basic",
+                    "groupMain": true
+                },
+                "data": {
+                    "required": true,
+                    "source": ["body.data"],
+                    "validation": {
+                        "type": "object",
+                        "properties": event
+                    }
                 }
-            }
-        },
-
-        // Post to add a media to an event
-        "/event/:id/medias": {
-            "_apiInfo": {
-                "l": "Add a media to an event",
-                "group": "Basic",
-                "groupMain": true
             },
-            "commonFields": ["id"],
 
-            "data":{
-                "required": true,
-                "source": ["body.data"],
-                "validation":{
-                    "type": "object",
-                    "properties": media
+            // Post to add a media to an event
+            "/event/:id/medias": {
+                "_apiInfo": {
+                    "l": "Add a media to an event",
+                    "group": "Basic",
+                    "groupMain": true
+                },
+                "commonFields": ["id"],
+
+                "data": {
+                    "required": true,
+                    "source": ["body.data"],
+                    "validation": {
+                        "type": "object",
+                        "properties": media
+                    }
                 }
-            }
-        },
-
-        // Get media to an event
-        "/event/:id/media/:filename": {
-            "_apiInfo": {
-                "l": "Get media to an event",
-                "group": "Basic"
             },
-            "commonFields": ["id"],
-            "fileName" : {
-                "source": ["params.fileName"],
-                "required": true,
-                "validation": {
-                    "type": "string"
-                }
-            }
-        },
 
-        // Post to add a checkin to an event
-        "/event/:id/checkin": {
-            "_apiInfo": {
-                "l": "Checkin to an event",
-                "group": "Basic"
-            },
-            "commonFields": ["id"],
+            // Post to add a checkin to an event
+            "/event/:id/checkin": {
+                "_apiInfo": {
+                    "l": "Checkin to an event",
+                    "group": "Basic"
+                },
+                "commonFields": ["id"],
 
-            "data":{
-                "required": true,
-                "source": ["body.data"],
-                "validation":{
-                    "type": "object",
-                    "properties": checkin
+                "data": {
+                    "required": true,
+                    "source": ["body.data"],
+                    "validation": {
+                        "type": "object",
+                        "properties": checkin
+                    }
                 }
             }
         },
@@ -154,10 +155,10 @@ module.exports = {
             },
             "commonFields": ["id"],
 
-            "data":{
+            "data": {
                 "required": true,
                 "source": ["body.data"],
-                "validation":{
+                "validation": {
                     "type": "object",
                     "properties": event
                 }
@@ -198,10 +199,10 @@ module.exports = {
                 "group": "Basic"
             },
             "commonFields": ["id"],
-            "data":{
+            "data": {
                 "required": true,
                 "source": ["body.data"],
-                "validation":{
+                "validation": {
                     "type": "object",
                     "properties": booking
                 }
