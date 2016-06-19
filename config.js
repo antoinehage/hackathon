@@ -44,7 +44,8 @@ module.exports = {
                     "l": "Get event by ID",
                     "group": "Basic",
                     "groupMain": false
-                }
+                },
+                "commonFields": ["id"]
             },
 
             //Get all events
