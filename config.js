@@ -38,7 +38,7 @@ module.exports = {
         },
 
         //Get event by id
-        "_GET": {
+        "_get": {
             "/event/:id": {
                 "_apiInfo": {
                     "l": "Get event by ID",
@@ -92,7 +92,7 @@ module.exports = {
             }
         },
         // post to create a new event
-        "_POST": {
+        "_post": {
             "/events": {
                 "_apiInfo": {
                     "l": "Add an event to the collection",
