@@ -37,8 +37,8 @@ module.exports = {
             }
         },
 
-        //Get event by id
-        "_get": {
+        "get": {
+            //Get event by id
             "/event/:id": {
                 "_apiInfo": {
                     "l": "Get event by ID",
@@ -90,10 +90,93 @@ module.exports = {
                         "type": "string"
                     }
                 }
+            },
+
+            "/products": {
+                "_apiInfo": {
+                    "l": "Get a List of products",
+                    "group": "Basic"
+                },
+                "from": {
+                    "source": ['query.from', 'body.from'],
+                    "required": false,
+                    "default": 0,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                },
+                "to": {
+                    "source": ['query.to', 'body.to'],
+                    "required": false,
+                    "default": 100,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                }
+            },
+
+            "/themes": {
+                "_apiInfo": {
+                    "l": "Get a List of supported event theme",
+                    "group": "Basic"
+                },
+                "from": {
+                    "source": ['query.from', 'body.from'],
+                    "required": false,
+                    "default": 0,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                },
+                "to": {
+                    "source": ['query.to', 'body.to'],
+                    "required": false,
+                    "default": 100,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                }
+            },
+
+            //Get to retrieve all the locations
+            "/locs": {
+                "_apiInfo": {
+                    "l": "Get a list of possible location for an event",
+                    "group": "Basic"
+                },
+                "from": {
+                    "source": ['query.from', 'body.from'],
+                    "required": false,
+                    "default": 0,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                },
+                "to": {
+                    "source": ['query.to', 'body.to'],
+                    "required": false,
+                    "default": 100,
+                    "validation": {
+                        "min": 0,
+                        "max": 100,
+                        "type": "integer"
+                    }
+                }
             }
         },
-        // post to create a new event
-        "_post": {
+
+        "post": {
+            // post to create a new event
             "/events": {
                 "_apiInfo": {
                     "l": "Add an event to the collection",
@@ -145,123 +228,45 @@ module.exports = {
                         "properties": checkin
                     }
                 }
-            }
-        },
-
-        //put to modify an event
-        "/event/:id": {
-            "_apiInfo": {
-                "l": "Modify an event",
-                "group": "Basic"
             },
-            "commonFields": ["id"],
 
-            "data": {
-                "required": true,
-                "source": ["body.data"],
-                "validation": {
-                    "type": "object",
-                    "properties": event
-                }
-            }
-        },
 
-        //Get to retrieve all the locations
-        "/locs": {
-            "_apiInfo": {
-                "l": "Get a list of possible location for an event",
-                "group": "Basic"
-            },
-            "from": {
-                "source": ['query.from', 'body.from'],
-                "required": false,
-                "default": 0,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
-                }
-            },
-            "to": {
-                "source": ['query.to', 'body.to'],
-                "required": false,
-                "default": 100,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
+            "/loc/:id/booking": {
+                "_apiInfo": {
+                    "l": "Book a location for an event",
+                    "group": "Basic"
+                },
+                "commonFields": ["id"],
+                "data": {
+                    "required": true,
+                    "source": ["body.data"],
+                    "validation": {
+                        "type": "object",
+                        "properties": booking
+                    }
                 }
             }
         },
 
-        "/loc/:id/booking": {
-            "_apiInfo": {
-                "l": "Book a location for an event",
-                "group": "Basic"
-            },
-            "commonFields": ["id"],
-            "data": {
-                "required": true,
-                "source": ["body.data"],
-                "validation": {
-                    "type": "object",
-                    "properties": booking
-                }
-            }
-        },
-        "/themes": {
-            "_apiInfo": {
-                "l": "Get a List of supported event theme",
-                "group": "Basic"
-            },
-            "from": {
-                "source": ['query.from', 'body.from'],
-                "required": false,
-                "default": 0,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
-                }
-            },
-            "to": {
-                "source": ['query.to', 'body.to'],
-                "required": false,
-                "default": 100,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
-                }
-            }
-        },
-        "/products": {
-            "_apiInfo": {
-                "l": "Get a List of products",
-                "group": "Basic"
-            },
-            "from": {
-                "source": ['query.from', 'body.from'],
-                "required": false,
-                "default": 0,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
-                }
-            },
-            "to": {
-                "source": ['query.to', 'body.to'],
-                "required": false,
-                "default": 100,
-                "validation": {
-                    "min": 0,
-                    "max": 100,
-                    "type": "integer"
+        "put" : {
+            //put to modify an event
+            "/event/:id": {
+                "_apiInfo": {
+                    "l": "Modify an event",
+                    "group": "Basic"
+                },
+                "commonFields": ["id"],
+
+                "data": {
+                    "required": true,
+                    "source": ["body.data"],
+                    "validation": {
+                        "type": "object",
+                        "properties": event
+                    }
                 }
             }
         }
-
 
     }
 };
